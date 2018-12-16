@@ -1,0 +1,4 @@
+C:\Users\p00126549\Source\Workspaces\Workspace\MSHP\HISD.SP2013.MSHP\HISD.SP2013.MSHP\bin\Debug\HISD.SP2013.MSHP.pdb
+C:\Users\p00126549\Source\Workspaces\Workspace\MSHP\HISD.SP2013.MSHP\HISD.SP2013.MSHP\obj\Debug\HISD.SP2013.MSHP.csproj.CoreCompileInputs.cache
+C:\Users\p00126549\Source\Workspaces\Workspace\MSHP\HISD.SP2013.MSHP\HISD.SP2013.MSHP\obj\Debug\HISD.SP2013.MSHP.dll
+C:\Users\p00126549\Source\Workspaces\Workspace\MSHP\HISD.SP2013.MSHP\HISD.SP2013.MSHP\obj\Debug\HISD.SP2013.MSHP.pdb

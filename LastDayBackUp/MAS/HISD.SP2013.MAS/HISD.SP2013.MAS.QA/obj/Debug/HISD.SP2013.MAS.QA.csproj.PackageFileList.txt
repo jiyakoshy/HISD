@@ -1,0 +1,1 @@
+bin\Debug\HISD.SP2013.MAS.QA.wsp

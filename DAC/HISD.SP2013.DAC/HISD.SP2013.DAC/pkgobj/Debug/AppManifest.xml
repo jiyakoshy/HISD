@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Published:70EDFC97-B41D-43C5-B751-7C00AD999804-->
+<!--Created:cb85b80c-f585-40ff-8bfc-12ff4d0e34a9-->
+<App xmlns="http://schemas.microsoft.com/sharepoint/2012/app/manifest" Name="DAC" ProductID="{73ab5072-c66e-4e59-854d-2a67f6442440}" Version="1.0.0.0" SharePointMinVersion="15.0.0.0">
+  <Properties>
+    <Title>DAC</Title>
+    <StartPage>~appWebUrl/app/index.html?{StandardTokens}</StartPage>
+  </Properties>
+  <AppPrincipal>
+    <Internal />
+  </AppPrincipal>
+</App>

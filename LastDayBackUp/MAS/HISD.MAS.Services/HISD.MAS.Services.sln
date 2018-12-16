@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HISD.MAS.Web", "HISD.MAS.Web\HISD.MAS.Web.csproj", "{77100E29-8CA6-40AC-994B-B06101793B03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HISD.MAS.DAL", "HISD.MAS.DAL\HISD.MAS.DAL.csproj", "{CD8CE0BD-1ED5-4DF4-85F1-678422243805}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77100E29-8CA6-40AC-994B-B06101793B03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77100E29-8CA6-40AC-994B-B06101793B03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77100E29-8CA6-40AC-994B-B06101793B03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77100E29-8CA6-40AC-994B-B06101793B03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD8CE0BD-1ED5-4DF4-85F1-678422243805}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD8CE0BD-1ED5-4DF4-85F1-678422243805}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD8CE0BD-1ED5-4DF4-85F1-678422243805}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD8CE0BD-1ED5-4DF4-85F1-678422243805}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfsprodapp01:8080/tfs/sharepointcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = HISD.MAS.DAL\\HISD.MAS.DAL.csproj
+		SccProjectName1 = HISD.MAS.DAL
+		SccLocalPath1 = HISD.MAS.DAL
+		SccProjectUniqueName2 = HISD.MAS.Web\\HISD.MAS.Web.csproj
+		SccProjectName2 = HISD.MAS.Web
+		SccLocalPath2 = HISD.MAS.Web
+	EndGlobalSection
+EndGlobal

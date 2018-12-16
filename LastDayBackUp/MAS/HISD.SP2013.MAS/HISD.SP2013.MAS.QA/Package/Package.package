@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="da3b57b7-8eca-4bdc-ba66-6fe8dbbee898" 
+        solutionId="da3b57b7-8eca-4bdc-ba66-6fe8dbbee898" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="HISD.SP2013.MAS.QA"
+        sharePointProductVersion="15.0">
+  <features>
+        <featureReference itemId="cbed199a-78ba-421c-a1e8-eee548d3f405" />
+  </features>
+</package>

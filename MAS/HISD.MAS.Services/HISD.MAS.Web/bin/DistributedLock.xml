@@ -1,0 +1,437 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DistributedLock</name>
+    </assembly>
+    <members>
+        <member name="T:Medallion.Threading.Sql.ConnectionMultiplexing.MultiplexedConnectionLock">
+            <summary>
+            Allows multiple SQL application locks to be taken on a single connection.
+            
+            This class is thread-safe except for <see cref="M:System.IDisposable.Dispose"/>
+            </summary>
+        </member>
+        <member name="F:Medallion.Threading.Sql.ConnectionMultiplexing.MultiplexedConnectionLock.mutex">
+            <summary>
+            Protects access to <see cref="F:Medallion.Threading.Sql.ConnectionMultiplexing.MultiplexedConnectionLock.outstandingHandles"/> and <see cref="F:Medallion.Threading.Sql.ConnectionMultiplexing.MultiplexedConnectionLock.connection"/>. We use
+            <see cref="T:System.Threading.SemaphoreSlim"/> over a normal lock because of its async support
+            </summary>
+        </member>
+        <member name="F:Medallion.Threading.Sql.ConnectionMultiplexing.MultiplexedConnectionLockPool.lock">
+            <summary>
+            Protects access to <see cref="F:Medallion.Threading.Sql.ConnectionMultiplexing.MultiplexedConnectionLockPool.connectionStringPools"/> and <see cref="F:Medallion.Threading.Sql.ConnectionMultiplexing.MultiplexedConnectionLockPool.cleanupTask"/>
+            </summary>
+        </member>
+        <member name="T:Medallion.Threading.Sql.IInternalSqlDistributedLock">
+            <summary>
+            There are several strategies for implementing SQL-based locks; this interface
+            abstracts between them to keep the implementation of <see cref="T:Medallion.Threading.Sql.SqlDistributedLock"/> manageable
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.KeepaliveHelper.RunKeepaliveAsync(System.WeakReference{System.Data.IDbConnection},System.Threading.CancellationToken)">
+            <summary>
+            Executes a keepalive query in a loop. We use a <see cref="T:System.WeakReference`1"/> for the <see cref="T:System.Data.IDbConnection"/> so
+            that an abandoned lock handle will not be held open by this
+            </summary>
+        </member>
+        <member name="T:Medallion.Threading.Sql.SqlDistributedLock">
+            <summary>
+            Implements a distributed lock using a SQL server application lock
+            (see https://msdn.microsoft.com/en-us/library/ms189823.aspx)
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedLock.#ctor(System.String,System.String)">
+            <summary>
+            Creates a lock with name <paramref name="lockName"/>, using the given
+            <paramref name="connectionString"/> to connect to the database.
+            
+            Uses <see cref="F:Medallion.Threading.Sql.SqlDistributedLockConnectionStrategy.Default"/>
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedLock.#ctor(System.String,System.String,Medallion.Threading.Sql.SqlDistributedLockConnectionStrategy)">
+            <summary>
+            Creates a lock with name <paramref name="lockName"/>, using the given
+            <paramref name="connectionString"/> to connect to the database via the strategy
+            specified by <paramref name="connectionStrategy"/>
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedLock.#ctor(System.String,System.Data.Common.DbConnection)">
+            <summary>
+            Creates a lock with name <paramref name="lockName"/> which, when acquired,
+            will be scoped to the given <paramref name="connection"/>. The <paramref name="connection"/> is
+            assumed to be externally managed: the <see cref="T:Medallion.Threading.Sql.SqlDistributedLock"/> will not attempt to open,
+            close, or dispose it
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedLock.#ctor(System.String,System.Data.Common.DbTransaction)">
+            <summary>
+            Creates a lock with name <paramref name="lockName"/> which, when acquired,
+            will be scoped to the given <paramref name="transaction"/>. The <paramref name="transaction"/> and its
+            <see cref="P:System.Data.Common.DbTransaction.Connection"/> are assumed to be externally managed: the <see cref="T:Medallion.Threading.Sql.SqlDistributedLock"/> will 
+            not attempt to open, close, commit, roll back, or dispose them
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedLock.#ctor(System.String,System.Data.IDbConnection)">
+            <summary>
+            Creates a lock with name <paramref name="lockName"/> which, when acquired,
+            will be scoped to the given <paramref name="connection"/>. The <paramref name="connection"/> is
+            assumed to be externally managed: the <see cref="T:Medallion.Threading.Sql.SqlDistributedLock"/> will not attempt to open,
+            close, or dispose it
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedLock.#ctor(System.String,System.Data.IDbTransaction)">
+            <summary>
+            Creates a lock with name <paramref name="lockName"/> which, when acquired,
+            will be scoped to the given <paramref name="transaction"/>. The <paramref name="transaction"/> and its
+            <see cref="P:System.Data.Common.DbTransaction.Connection"/> are assumed to be externally managed: the <see cref="T:Medallion.Threading.Sql.SqlDistributedLock"/> will 
+            not attempt to open, close, commit, roll back, or dispose them
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedLock.TryAcquire(System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Attempts to acquire the lock synchronously. Usage:
+            <code>
+                using (var handle = myLock.TryAcquire(...))
+                {
+                    if (handle != null) { /* we have the lock! */ }
+                }
+                // dispose releases the lock if we took it
+            </code>
+            </summary>
+            <param name="timeout">How long to wait before giving up on acquiring the lock. Defaults to 0</param>
+            <param name="cancellationToken">Specifies a token by which the wait can be canceled</param>
+            <returns>An <see cref="T:System.IDisposable"/> "handle" which can be used to release the lock, or null if the lock was not taken</returns>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedLock.Acquire(System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary>
+            Acquires the lock synchronously, failing with <see cref="T:System.TimeoutException"/> if the wait times out
+            <code>
+                using (myLock.Acquire(...))
+                {
+                    // we have the lock
+                }
+                // dispose releases the lock
+            </code>
+            </summary>
+            <param name="timeout">How long to wait before giving up on acquiring the lock. Defaults to <see cref="F:System.Threading.Timeout.InfiniteTimeSpan"/></param>
+            <param name="cancellationToken">Specifies a token by which the wait can be canceled</param>
+            <returns>An <see cref="T:System.IDisposable"/> "handle" which can be used to release the lock</returns>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedLock.TryAcquireAsync(System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Attempts to acquire the lock asynchronously. Usage:
+            <code>
+                using (var handle = await myLock.TryAcquireAsync(...))
+                {
+                    if (handle != null) { /* we have the lock! */ }
+                }
+                // dispose releases the lock if we took it
+            </code>
+            </summary>
+            <param name="timeout">How long to wait before giving up on acquiring the lock. Defaults to 0</param>
+            <param name="cancellationToken">Specifies a token by which the wait can be canceled</param>
+            <returns>An <see cref="T:System.IDisposable"/> "handle" which can be used to release the lock, or null if the lock was not taken</returns>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedLock.AcquireAsync(System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary>
+            Acquires the lock asynchronously, failing with <see cref="T:System.TimeoutException"/> if the wait times out
+            <code>
+                using (await myLock.AcquireAsync(...))
+                {
+                    // we have the lock
+                }
+                // dispose releases the lock
+            </code>
+            </summary>
+            <param name="timeout">How long to wait before giving up on acquiring the lock. Defaults to <see cref="F:System.Threading.Timeout.InfiniteTimeSpan"/></param>
+            <param name="cancellationToken">Specifies a token by which the wait can be canceled</param>
+            <returns>An <see cref="T:System.IDisposable"/> "handle" which can be used to release the lock</returns>
+        </member>
+        <member name="P:Medallion.Threading.Sql.SqlDistributedLock.MaxLockNameLength">
+            <summary>
+            The maximum allowed length for lock names. See https://msdn.microsoft.com/en-us/library/ms189823.aspx
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedLock.GetSafeLockName(System.String)">
+            <summary>
+            Given <paramref name="baseLockName"/>, constructs a lock name which is safe for use with <see cref="T:Medallion.Threading.Sql.SqlDistributedLock"/>
+            </summary>
+        </member>
+        <member name="T:Medallion.Threading.Sql.SqlDistributedLockConnectionStrategy">
+            <summary>
+            Determines how a <see cref="T:Medallion.Threading.Sql.SqlDistributedLock"/> manages its connection
+            </summary>
+        </member>
+        <member name="F:Medallion.Threading.Sql.SqlDistributedLockConnectionStrategy.Default">
+            <summary>
+            Specifies the default strategy. Currently, this is equivalent to <see cref="F:Medallion.Threading.Sql.SqlDistributedLockConnectionStrategy.Connection"/>
+            </summary>
+        </member>
+        <member name="F:Medallion.Threading.Sql.SqlDistributedLockConnectionStrategy.Connection">
+            <summary>
+            Uses a connection-scoped lock. This is marginally more expensive than <see cref="F:Medallion.Threading.Sql.SqlDistributedLockConnectionStrategy.Transaction"/> 
+            due to the need for an explicit sp_releaseapplock call, but has the benefit of not maintaining
+            a potentially-long-running transaction which can be problematic for databases using the full
+            recovery model
+            </summary>
+        </member>
+        <member name="F:Medallion.Threading.Sql.SqlDistributedLockConnectionStrategy.Transaction">
+            <summary>
+            Uses a transaction-scoped lock. This is marginally less expensive than <see cref="F:Medallion.Threading.Sql.SqlDistributedLockConnectionStrategy.Connection"/>
+            because releasing the lock requires only disposing the underlying <see cref="T:System.Data.SqlClient.SqlTransaction"/>.
+            The disadvantage is that using this strategy may lead to long-running transactions, which can be
+            problematic for databases using the full recovery model
+            </summary>
+        </member>
+        <member name="F:Medallion.Threading.Sql.SqlDistributedLockConnectionStrategy.OptimisticConnectionMultiplexing">
+            <summary>
+            This mode takes advantage of the fact that while "holding" a lock a connection is essentially idle. Thus,
+            rather than creating a new connection for each held lock it is often possible to multiplex a shared connection
+            so that that connection can hold multiple locks at the same time.
+            
+            This is implemented in such a way that releasing a lock held on such a connection will never be blocked by an
+            Acquire() call that is waiting to acquire a lock on that same connection. For this reason, the multiplexing
+            strategy is "optimistic": if the lock can't be acquired instantaneously on the shared connection, a new (shareable) 
+            connection will be allocated.
+            
+            This option can improve performance and avoid connection pool starvation in high-load scenarios. It is also
+            particularly applicable to cases where <see cref="M:Medallion.Threading.Sql.SqlDistributedLock.TryAcquire(System.TimeSpan,System.Threading.CancellationToken)"/>
+            semantics are used with a zero-length timeout.
+            </summary>
+        </member>
+        <member name="F:Medallion.Threading.Sql.SqlDistributedLockConnectionStrategy.Azure">
+            <summary>
+            Using SQL Azure as a distributed lock provider can be challenging due to Azure's aggressive connection governor
+            which proactively kills idle connections. Using this strategy, the lock attempts to account for this by issuing
+            periodic no-op "keepalive" queries on the locking connection to prevent it from becoming idle. Note that this still
+            does not guarantee protection for the connection from all conditions where the governor might kill it.
+            
+            For more information, see the dicussion on https://github.com/madelson/DistributedLock/issues/5
+            </summary>
+        </member>
+        <member name="T:Medallion.Threading.Sql.SqlDistributedReaderWriterLock">
+            <summary>
+            Implements reader-writer lock semantics using a SQL server application lock
+            (see https://msdn.microsoft.com/en-us/library/ms189823.aspx).
+            
+            This class supports the following patterns:
+            * Multiple readers AND single writer (using <see cref="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.AcquireReadLock(System.Nullable{System.TimeSpan},System.Threading.CancellationToken)"/> and <see cref="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.AcquireUpgradeableReadLock(System.Nullable{System.TimeSpan},System.Threading.CancellationToken)"/>)
+            * Multiple readers OR single writer (using <see cref="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.AcquireReadLock(System.Nullable{System.TimeSpan},System.Threading.CancellationToken)"/> and <see cref="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.AcquireWriteLock(System.Nullable{System.TimeSpan},System.Threading.CancellationToken)"/>)
+            * Upgradeable read locks similar to <see cref="M:System.Threading.ReaderWriterLockSlim.EnterUpgradeableReadLock"/> (using <see cref="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.AcquireUpgradeableReadLock(System.Nullable{System.TimeSpan},System.Threading.CancellationToken)"/> and <see cref="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.UpgradeableHandle.UpgradeToWriteLock(System.Nullable{System.TimeSpan},System.Threading.CancellationToken)"/>)
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.#ctor(System.String,System.String)">
+            <summary>
+            Creates a lock with name <paramref name="lockName"/>, using the given
+            <paramref name="connectionString"/> to connect to the database.
+            
+            Uses <see cref="F:Medallion.Threading.Sql.SqlDistributedLockConnectionStrategy.Default"/>
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.#ctor(System.String,System.String,Medallion.Threading.Sql.SqlDistributedLockConnectionStrategy)">
+            <summary>
+            Creates a lock with name <paramref name="lockName"/>, using the given
+            <paramref name="connectionString"/> to connect to the database via the strategy
+            specified by <paramref name="connectionStrategy"/>
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.#ctor(System.String,System.Data.IDbConnection)">
+            <summary>
+            Creates a lock with name <paramref name="lockName"/> which, when acquired,
+            will be scoped to the given <paramref name="connection"/>. The <paramref name="connection"/> is
+            assumed to be externally managed: the <see cref="T:Medallion.Threading.Sql.SqlDistributedReaderWriterLock"/> will not attempt to open,
+            close, or dispose it
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.#ctor(System.String,System.Data.IDbTransaction)">
+            <summary>
+            Creates a lock with name <paramref name="lockName"/> which, when acquired,
+            will be scoped to the given <paramref name="transaction"/>. The <paramref name="transaction"/> and its
+            <see cref="P:System.Data.Common.DbTransaction.Connection"/> are assumed to be externally managed: the <see cref="T:Medallion.Threading.Sql.SqlDistributedLock"/> will 
+            not attempt to open, close, commit, roll back, or dispose them
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.TryAcquireReadLock(System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Attempts to acquire a READ lock synchronously. Multiple readers are allowed. Not compatible with a WRITE lock
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.AcquireReadLock(System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary>
+            Acquires a READ lock synchronously. Multiple readers are allowed. Not compatible with a WRITE lock
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.TryAcquireReadLockAsync(System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Attempts to acquire a READ lock asynchronously. Multiple readers are allowed. Not compatible with a WRITE lock
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.AcquireReadLockAsync(System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary>
+            Acquires a READ lock asynchronously. Multiple readers are allowed. Not compatible with a WRITE lock
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.TryAcquireUpgradeableReadLock(System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Attempts to acquire an UPGRADE lock synchronously. Not compatible with another UPGRADE lock or a WRITE lock
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.AcquireUpgradeableReadLock(System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary>
+            Acquires an UPGRADE lock synchronously. Not compatible with another UPGRADE lock or a WRITE lock
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.TryAcquireUpgradeableReadLockAsync(System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Attempts to acquire an UPGRADE lock asynchronously. Not compatible with another UPGRADE lock or a WRITE lock
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.AcquireUpgradeableReadLockAsync(System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary>
+            Acquires an acquire an UPGRADE lock asynchronously. Not compatible with another UPGRADE lock or a WRITE lock
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.TryAcquireWriteLock(System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Attempts to acquire a WRITE lock synchronously. Not compatible with another WRITE lock or a UPGRADE lock
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.AcquireWriteLock(System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary>
+            Acquires a WRITE lock synchronously. Not compatible with another WRITE lock or a UPGRADE lock
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.TryAcquireWriteLockAsync(System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Attempts to acquire a WRITE lock asynchronously. Not compatible with another WRITE lock or a UPGRADE lock
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.AcquireWriteLockAsync(System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary>
+            Acquires a WRITE lock asynchronously. Not compatible with another WRITE lock or a UPGRADE lock
+            </summary>
+        </member>
+        <member name="P:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.MaxLockNameLength">
+            <summary>
+            The maximum allowed length for lock names. See https://msdn.microsoft.com/en-us/library/ms189823.aspx
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.GetSafeLockName(System.String)">
+            <summary>
+            Given <paramref name="baseLockName"/>, constructs a lock name which is safe for use with <see cref="T:Medallion.Threading.Sql.SqlDistributedReaderWriterLock"/>
+            </summary>
+        </member>
+        <member name="T:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.UpgradeableHandle">
+            <summary>
+            A lock handle which can be upgraded to an exclusive WRITE lock
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.UpgradeableHandle.TryUpgradeToWriteLock(System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Attempts to upgrade a WRITE lock synchronously. Not compatible with another WRITE lock or a UPGRADE lock
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.UpgradeableHandle.UpgradeToWriteLock(System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary>
+            Upgrades to a WRITE lock synchronously. Not compatible with another WRITE lock or a UPGRADE lock
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.UpgradeableHandle.TryUpgradeToWriteLockAsync(System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Attempts to upgrade a WRITE lock asynchronously. Not compatible with another WRITE lock or a UPGRADE lock
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.UpgradeableHandle.UpgradeToWriteLockAsync(System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary>
+            Upgrades to a WRITE lock asynchronously. Not compatible with another WRITE lock or a UPGRADE lock
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.Sql.SqlDistributedReaderWriterLock.UpgradeableHandle.Dispose">
+            <summary>
+            Releases the lock
+            </summary>
+        </member>
+        <member name="T:Medallion.Threading.SystemDistributedLock">
+            <summary>
+            Implements a system-/OS-scoped distributed lock using .NET <see cref="T:System.Threading.EventWaitHandle"/>s
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.SystemDistributedLock.#ctor(System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            Creates an instance of <see cref="T:Medallion.Threading.SystemDistributedLock"/> named <paramref name="lockName"/>.
+            <paramref name="abandonmentCheckFrequency"/> specifies how long the lock should wait before checking
+            if the underlying <see cref="T:System.Threading.EventWaitHandle"/> has been abandoned (defaults to 2 seconds)
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.SystemDistributedLock.TryAcquire(System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Attempts to acquire the lock synchronously. Usage:
+            <code>
+                using (var handle = myLock.TryAcquire(...))
+                {
+                    if (handle != null) { /* we have the lock! */ }
+                }
+                // dispose releases the lock if we took it
+            </code>
+            </summary>
+            <param name="timeout">How long to wait before giving up on acquiring the lock. Defaults to 0</param>
+            <param name="cancellationToken">Specifies a token by which the wait can be canceled</param>
+            <returns>An <see cref="T:System.IDisposable"/> "handle" which can be used to release the lock, or null if the lock was not taken</returns>
+        </member>
+        <member name="M:Medallion.Threading.SystemDistributedLock.Acquire(System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary>
+            Acquires the lock synchronously, failing with <see cref="T:System.TimeoutException"/> if the wait times out
+            <code>
+                using (myLock.Acquire(...))
+                {
+                    // we have the lock
+                }
+                // dispose releases the lock
+            </code>
+            </summary>
+            <param name="timeout">How long to wait before giving up on acquiring the lock. Defaults to <see cref="F:System.Threading.Timeout.InfiniteTimeSpan"/></param>
+            <param name="cancellationToken">Specifies a token by which the wait can be canceled</param>
+            <returns>An <see cref="T:System.IDisposable"/> "handle" which can be used to release the lock</returns>
+        </member>
+        <member name="M:Medallion.Threading.SystemDistributedLock.TryAcquireAsync(System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Attempts to acquire the lock asynchronously. Usage:
+            <code>
+                using (var handle = await myLock.TryAcquireAsync(...))
+                {
+                    if (handle != null) { /* we have the lock! */ }
+                }
+                // dispose releases the lock if we took it
+            </code>
+            </summary>
+            <param name="timeout">How long to wait before giving up on acquiring the lock. Defaults to 0</param>
+            <param name="cancellationToken">Specifies a token by which the wait can be canceled</param>
+            <returns>An <see cref="T:System.IDisposable"/> "handle" which can be used to release the lock, or null if the lock was not taken</returns>
+        </member>
+        <member name="M:Medallion.Threading.SystemDistributedLock.AcquireAsync(System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary>
+            Acquires the lock asynchronously, failing with <see cref="T:System.TimeoutException"/> if the wait times out
+            <code>
+                using (await myLock.AcquireAsync(...))
+                {
+                    // we have the lock
+                }
+                // dispose releases the lock
+            </code>
+            </summary>
+            <param name="timeout">How long to wait before giving up on acquiring the lock. Defaults to <see cref="F:System.Threading.Timeout.InfiniteTimeSpan"/></param>
+            <param name="cancellationToken">Specifies a token by which the wait can be canceled</param>
+            <returns>An <see cref="T:System.IDisposable"/> "handle" which can be used to release the lock</returns>
+        </member>
+        <member name="P:Medallion.Threading.SystemDistributedLock.MaxLockNameLength">
+            <summary>
+            The maximum allowed length for lock names
+            </summary>
+        </member>
+        <member name="M:Medallion.Threading.SystemDistributedLock.GetSafeLockName(System.String)">
+            <summary>
+            Given <paramref name="baseLockName"/>, constructs a lock name which is safe for use with <see cref="T:Medallion.Threading.SystemDistributedLock"/>
+            </summary>
+        </member>
+    </members>
+</doc>

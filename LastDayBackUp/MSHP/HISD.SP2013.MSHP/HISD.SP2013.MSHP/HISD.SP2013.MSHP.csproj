@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5526C7A6-2A62-40E0-8956-ACF8B4605CFB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HISD.SP2013.MSHP</RootNamespace>
+    <AssemblyName>HISD.SP2013.MSHP</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <IncludeAssemblyInPackage>False</IncludeAssemblyInPackage>
+    <ProjectMode>SharePointApp</ProjectMode>
+    <AppFeaturePartId>{269fd449-ca98-4018-b5d9-bbecf2e4ffbb}</AppFeaturePartId>
+    <WspPartId>{3ad2fc96-a0c8-446a-a778-51ccb0b5d2bb}</WspPartId>
+    <WorkflowPartId>{12a4eaf9-e305-41e6-b440-4acecea9ae8c}</WorkflowPartId>
+    <CspkgPartId>{f78ec410-578d-4bb4-90dc-8cb2d02274cc}</CspkgPartId>
+    <SqlPackagePartId>{f48841d0-d41f-450e-8ba9-292d8d6cd4d9}</SqlPackagePartId>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="app\bundle.js.map" />
+    <None Include="app\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a1bf985c-7c55-478f-9e58-84d735d5edac}</SharePointProjectItemId>
+    </None>
+    <None Include="app\styles.css.map" />
+    <None Include="packages.config" />
+    <None Include="Pages\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{364f2211-fe4e-4de7-9f45-721b71ffe92f}</SharePointProjectItemId>
+    </None>
+    <Content Include="app\bundle.js" />
+    <Content Include="app\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="app\index.html" />
+    <Content Include="app\styles.css" />
+    <Content Include="Pages\Elements.xml" />
+    <Content Include="Pages\Default.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\bootstrap\css\bootstrap-theme.min.css.map" />
+    <None Include="Scripts\bootstrap\css\bootstrap.min.css.map" />
+    <None Include="Scripts\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Scripts\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="Scripts\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Scripts\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Scripts\fetch.min.js.map" />
+    <None Include="Scripts\jquery\jquery.min.map" />
+    <None Include="Scripts\office-ui-fabric-react\office-ui-fabric-react.min.js.map" />
+    <None Include="Scripts\office-ui-fabric-react\sass\Fabric.RTL.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\Fabric.Scoped.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\Fabric.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\mixins\_Animation.Mixins.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\mixins\_BrandIcon.Mixins.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\mixins\_Color.Mixins.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\mixins\_Directionality.Mixins.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\mixins\_Font.Mixins.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\mixins\_General.Mixins.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\mixins\_Grid.Mixins.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\mixins\_Icon.Mixins.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\mixins\_Responsive.Mixins.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\mixins\_ScopedStyles.Mixins.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\variables\_Animation.Variables.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\variables\_BrandIcon.Variables.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\variables\_Color.Variables.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\variables\_Font.Variables.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\variables\_General.Variables.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\variables\_Icon.Variables.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\variables\_Responsive.Variables.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\variables\_ZIndex.Variables.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\_Animation.RTL.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\_Animation.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\_BrandIcon.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\_Color.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\_Font.Definitions.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\_Font.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\_Grid.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\_Icon.Definitions.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\_Icon.RTL.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\_Icon.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\_References.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\_Responsive.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\_Utility.scss" />
+    <None Include="Scripts\office-ui-fabric-react\sass\_Wrapper.scss" />
+    <None Include="Scripts\react-bootstrap\react-bootstrap.min.js.map" />
+    <None Include="Scripts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f48841d0-d41f-450e-8ba9-292d8d6cd4d9}</SharePointProjectItemId>
+    </None>
+    <Content Include="Scripts\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Scripts\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Scripts\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap\js\npm.js" />
+    <Content Include="Scripts\Elements.xml" />
+    <Content Include="Scripts\es6-promise.min.js" />
+    <Content Include="Scripts\fetch.min.js" />
+    <Content Include="Scripts\jquery\jquery.min.js" />
+    <Content Include="Scripts\office-ui-fabric-react\css\fabric-7.1.2.scoped.css" />
+    <Content Include="Scripts\office-ui-fabric-react\css\fabric-7.1.2.scoped.min.css" />
+    <Content Include="Scripts\office-ui-fabric-react\css\fabric.css" />
+    <Content Include="Scripts\office-ui-fabric-react\css\fabric.min.css" />
+    <Content Include="Scripts\office-ui-fabric-react\css\fabric.rtl.css" />
+    <Content Include="Scripts\office-ui-fabric-react\css\fabric.rtl.min.css" />
+    <Content Include="Scripts\office-ui-fabric-react\office-ui-fabric-react.min.js" />
+    <Content Include="Scripts\polyfill.min.js" />
+    <Content Include="Scripts\polyfill.min.old.js" />
+    <Content Include="Scripts\react-bootstrap-table\react-bootstrap-table-all.min.css" />
+    <Content Include="Scripts\react-bootstrap-table\react-bootstrap-table.min.css" />
+    <Content Include="Scripts\react-bootstrap-table\react-bootstrap-table.min.js" />
+    <Content Include="Scripts\react-bootstrap\react-bootstrap.min.js" />
+    <Content Include="Scripts\react-dom.min.js" />
+    <Content Include="Scripts\react.min.js" />
+    <Content Include="Scripts\startswith.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{61095d0d-26a3-4213-9a53-e003644391ed}</SharePointProjectItemId>
+    </None>
+    <Content Include="Content\Elements.xml" />
+    <Content Include="Content\App.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\AppIcon.png">
+      <OpcRelationship>manifest-icon</OpcRelationship>
+    </Content>
+    <Content Include="Images\Elements.xml" />
+    <None Include="Images\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f2e9f838-ea68-447e-b413-a59c38f0e630}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Package\Package.package">
+      <PackageId>{80cd49af-3f87-4212-832c-d92de8f819da}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="Features\Feature1\Feature1.feature">
+      <FeatureId>{819aa20b-54f0-42b7-a787-6308640fb0af}</FeatureId>
+    </None>
+    <None Include="Features\Feature1\Feature1.Template.xml">
+      <DependentUpon>Feature1.feature</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <AppManifestFile Include="AppManifest.xml">
+      <SubType>Designer</SubType>
+    </AppManifestFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

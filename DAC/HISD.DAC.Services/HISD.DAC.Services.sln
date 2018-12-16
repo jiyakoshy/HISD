@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HISD.DAC.Web", "HISD.DAC.Web\HISD.DAC.Web.csproj", "{2FE3B869-5A1C-4633-832D-652553ECA818}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HISD.DAC.DAL", "HISD.DAC.DAL\HISD.DAC.DAL.csproj", "{21B132C2-A546-478B-BF51-C7BDFBA52261}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2FE3B869-5A1C-4633-832D-652553ECA818}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FE3B869-5A1C-4633-832D-652553ECA818}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FE3B869-5A1C-4633-832D-652553ECA818}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FE3B869-5A1C-4633-832D-652553ECA818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21B132C2-A546-478B-BF51-C7BDFBA52261}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21B132C2-A546-478B-BF51-C7BDFBA52261}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21B132C2-A546-478B-BF51-C7BDFBA52261}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21B132C2-A546-478B-BF51-C7BDFBA52261}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23377141-1A46-4BBC-AB8D-34BECA44620E}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfsprodapp01:8080/tfs/sharepointcollection
+		SccProjectUniqueName0 = HISD.DAC.Web\\HISD.DAC.Web.csproj
+		SccProjectName0 = HISD.DAC.Web
+		SccLocalPath0 = HISD.DAC.Web
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = HISD.DAC.DAL\\HISD.DAC.DAL.csproj
+		SccProjectName2 = HISD.DAC.DAL
+		SccLocalPath2 = HISD.DAC.DAL
+	EndGlobalSection
+EndGlobal

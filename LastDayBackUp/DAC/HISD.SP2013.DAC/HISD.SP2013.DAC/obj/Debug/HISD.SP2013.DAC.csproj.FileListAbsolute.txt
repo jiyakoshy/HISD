@@ -1,0 +1,10 @@
+C:\Users\p00126549\Documents\HISD\DAS\Code\HISD.SP2013.DAC\HISD.SP2013.DAC\bin\Debug\HISD.SP2013.DAC.pdb
+C:\Users\p00126549\Documents\HISD\DAS\Code\HISD.SP2013.DAC\HISD.SP2013.DAC\obj\Debug\HISD.SP2013.DAC.csproj.CoreCompileInputs.cache
+C:\Users\p00126549\Documents\HISD\DAS\Code\HISD.SP2013.DAC\HISD.SP2013.DAC\obj\Debug\HISD.SP2013.DAC.dll
+C:\Users\p00126549\Documents\HISD\DAS\Code\HISD.SP2013.DAC\HISD.SP2013.DAC\obj\Debug\HISD.SP2013.DAC.pdb
+C:\Users\p00126549\Documents\HISD\DAS\Code\HISD.SP2013.DAC\HISD.SP2013.DAC\obj\Debug\HISD.SP2013.DAC.csprojResolveAssemblyReference.cache
+C:\Users\p00126549\Source\Workspaces\Workspace\DAC\HISD.SP2013.DAC\HISD.SP2013.DAC\bin\Debug\HISD.SP2013.DAC.pdb
+C:\Users\p00126549\Source\Workspaces\Workspace\DAC\HISD.SP2013.DAC\HISD.SP2013.DAC\obj\Debug\HISD.SP2013.DAC.csprojResolveAssemblyReference.cache
+C:\Users\p00126549\Source\Workspaces\Workspace\DAC\HISD.SP2013.DAC\HISD.SP2013.DAC\obj\Debug\HISD.SP2013.DAC.csproj.CoreCompileInputs.cache
+C:\Users\p00126549\Source\Workspaces\Workspace\DAC\HISD.SP2013.DAC\HISD.SP2013.DAC\obj\Debug\HISD.SP2013.DAC.dll
+C:\Users\p00126549\Source\Workspaces\Workspace\DAC\HISD.SP2013.DAC\HISD.SP2013.DAC\obj\Debug\HISD.SP2013.DAC.pdb

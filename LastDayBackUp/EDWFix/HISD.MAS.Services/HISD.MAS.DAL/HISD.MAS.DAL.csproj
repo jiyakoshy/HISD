@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CD8CE0BD-1ED5-4DF4-85F1-678422243805}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HISD.MAS.DAL</RootNamespace>
+    <AssemblyName>HISD.MAS.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>\\spdevapi01\c%24\inetpub\wwwroot\HisdMASDAL\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>20183E3BF8232225FB43847E038E093F33873AD0</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>HISD.MAS.DAL_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DistributedLock, Version=1.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DistributedLock.1.3.1\lib\net45\DistributedLock.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\HISD.MAS.Services\packages\Microsoft.Extensions.DependencyInjection.1.0.0\lib\netstandard1.1\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\HISD.MAS.Services\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.OData.Core, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\HISD.MAS.Services\packages\Microsoft.OData.Core.7.0.0\lib\portable-net45+win8+wpa81\Microsoft.OData.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.OData.Edm, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\HISD.MAS.Services\packages\Microsoft.OData.Edm.7.0.0\lib\portable-net45+win8+wpa81\Microsoft.OData.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Spatial, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\HISD.MAS.Services\packages\Microsoft.Spatial.7.0.0\lib\portable-net45+win8+wpa81\Microsoft.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\HISD.MAS.Services\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\HISD.MAS.Services\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\HISD.MAS.Services\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.OData, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\HISD.MAS.Services\packages\Microsoft.AspNet.OData.6.0.0\lib\net45\System.Web.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\ActivityCode.cs" />
+    <Compile Include="Models\ActivityCommunicationType.cs" />
+    <Compile Include="Models\ActivityLog.cs" />
+    <Compile Include="Models\ActivityLogCompetedByMentorInfo.cs" />
+    <Compile Include="Models\ActivityLogMenteeInfoByTimeConfig.cs" />
+    <Compile Include="Models\ActivityLogsByTimeConfig.cs" />
+    <Compile Include="Models\ActivityLogTotalTimeInfo.cs" />
+    <Compile Include="Models\MentorActivityLogCompletionInfo.cs" />
+    <Compile Include="Models\ActivityLogMenteeInfo.cs" />
+    <Compile Include="Models\ActivityLogToolItemInfo.cs" />
+    <Compile Include="Models\ActivityLogWithComplexTypeInfo.cs" />
+    <Compile Include="Models\ActivityLog_ActivityStandardItems.cs" />
+    <Compile Include="Models\ActivityLog_ActivityToolItems.cs" />
+    <Compile Include="Models\ActivityLog_Mentees.cs" />
+    <Compile Include="Models\ActivityStandardGroup.cs" />
+    <Compile Include="Models\ActivityStandardItem.cs" />
+    <Compile Include="Models\ActivityToolItem.cs" />
+    <Compile Include="Models\CampusContact.cs" />
+    <Compile Include="Models\CampusAdminSetupEmailHistory.cs" />
+    <Compile Include="Models\CBMStandard.cs" />
+    <Compile Include="Models\EDWMapping\StaffAccomplishmentMap.cs" />
+    <Compile Include="Models\EDWMapping\CampusContactInfoMap.cs" />
+    <Compile Include="Models\EDWMapping\AccomplishmentTypeMap.cs" />
+    <Compile Include="Models\EDW\AccomplishmentType.cs" />
+    <Compile Include="Models\EDW\StaffAccomplishment.cs" />
+    <Compile Include="Models\Mapping\ActivityLog_ActivityStandardItemsMap.cs" />
+    <Compile Include="Models\Mapping\ActivityLogInfoMap.cs" />
+    <Compile Include="Models\Mapping\MenteeInActiveRelationshipInfoMap.cs" />
+    <Compile Include="Models\Mapping\MentorMenteeRelationshipInfoMap.cs" />
+    <Compile Include="Models\EDWMapping\SchoolManagerMap.cs" />
+    <Compile Include="Models\EDWMapping\EducationOrganizationMap.cs" />
+    <Compile Include="Models\EDWMapping\JobFamilyMap.cs" />
+    <Compile Include="Models\EDWMapping\EmployeeStatusTypeMap.cs" />
+    <Compile Include="Models\EDWMapping\MenteeInfoMap.cs" />
+    <Compile Include="Models\EDWMapping\StaffElectronicEmailMap.cs" />
+    <Compile Include="Models\EDWMapping\UserInfoMap.cs" />
+    <Compile Include="Models\EDWMapping\StaffQualificationAssociationMap.cs" />
+    <Compile Include="Models\EDWMapping\QualificationGroupAssociationMap.cs" />
+    <Compile Include="Models\EDWMapping\QualificationTypeMap.cs" />
+    <Compile Include="Models\EDWMapping\SalaryPlanTypeMap.cs" />
+    <Compile Include="Models\EDWMapping\EmployeeHISDStatusTypeMap.cs" />
+    <Compile Include="Models\EDWMapping\JobFunctionMap.cs" />
+    <Compile Include="Models\EDWMapping\JobCodeMap.cs" />
+    <Compile Include="Models\EDWMapping\StaffMap.cs" />
+    <Compile Include="Models\CampusContactInfo.cs" />
+    <Compile Include="Models\MenteeInActiveRelationshipInfo.cs" />
+    <Compile Include="Models\ActivityLogStandardItemInfo.cs" />
+    <Compile Include="Models\MenteeEndDateInfo.cs" />
+    <Compile Include="Models\ActivityLogInfo.cs" />
+    <Compile Include="Models\MentorMenteeRelationshipInfo.cs" />
+    <Compile Include="Models\EDW\SchoolManager.cs" />
+    <Compile Include="Models\EDW\EducationOrganization.cs" />
+    <Compile Include="Models\EDW\EmployeeHISDStatusType.cs" />
+    <Compile Include="Models\EDW\MenteeInfo.cs" />
+    <Compile Include="Models\EDW\StaffElectronicEmail.cs" />
+    <Compile Include="Models\EDW\EmployeeInfo.cs" />
+    <Compile Include="Models\EDW\UserInfo.cs" />
+    <Compile Include="Models\EDW\StaffQualificationAssociation.cs" />
+    <Compile Include="Models\EDW\QualificationType.cs" />
+    <Compile Include="Models\EDW\QualificationGroupAssociation.cs" />
+    <Compile Include="Models\EDW\SalaryPlanType.cs" />
+    <Compile Include="Models\EDW\JobFamily.cs" />
+    <Compile Include="Models\EDW\EmployeeStatusType.cs" />
+    <Compile Include="Models\EDW\JobFunction.cs" />
+    <Compile Include="Models\EDW\JobCode.cs" />
+    <Compile Include="Models\EDW\Staff.cs" />
+    <Compile Include="Models\EmailMessage.cs" />
+    <Compile Include="Models\ErrorMessage.cs" />
+    <Compile Include="Models\Mapping\MultiChoiceListItemsMap.cs" />
+    <Compile Include="Models\Mapping\MultiChoiceListMap.cs" />
+    <Compile Include="Models\Mapping\MenteeEndDateMap.cs" />
+    <Compile Include="Models\MultiChoiceListItem.cs" />
+    <Compile Include="Models\MultiChoiceList.cs" />
+    <Compile Include="Models\MenteeEndDate.cs" />
+    <Compile Include="Models\SiteContent.cs" />
+    <Compile Include="Models\HomeMessage.cs" />
+    <Compile Include="Models\Mapping\ActivityCodeMap.cs" />
+    <Compile Include="Models\Mapping\ActivityCommunicationTypeMap.cs" />
+    <Compile Include="Models\Mapping\ActivityLogMap.cs" />
+    <Compile Include="Models\Mapping\ActivityLog_ActivityToolItemsMap.cs" />
+    <Compile Include="Models\Mapping\ActivityLog_MenteesMap.cs" />
+    <Compile Include="Models\Mapping\ActivityStandardGroupMap.cs" />
+    <Compile Include="Models\Mapping\ActivityStandardItemMap.cs" />
+    <Compile Include="Models\Mapping\ActivityToolItemMap.cs" />
+    <Compile Include="Models\Mapping\CampusContactMap.cs" />
+    <Compile Include="Models\Mapping\CBMStandardMap.cs" />
+    <Compile Include="Models\Mapping\EmailMessageMap.cs" />
+    <Compile Include="Models\Mapping\ErrorMessageMap.cs" />
+    <Compile Include="Models\Mapping\SiteContentMap.cs" />
+    <Compile Include="Models\Mapping\HomeMessageMap.cs" />
+    <Compile Include="Models\Mapping\MentorMenteeRelationshipMap.cs" />
+    <Compile Include="Models\Mapping\sysdiagramMap.cs" />
+    <Compile Include="Models\Mapping\TimeConfigurationMap.cs" />
+    <Compile Include="Models\EDWMASContext.cs" />
+    <Compile Include="Models\MASContext.cs" />
+    <Compile Include="Models\MentorMenteeRelationship.cs" />
+    <Compile Include="Models\sysdiagram.cs" />
+    <Compile Include="Models\TimeConfiguration.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HISD.MAS.DAL_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

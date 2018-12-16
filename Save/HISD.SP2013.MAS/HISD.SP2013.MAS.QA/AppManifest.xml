@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Created:cb85b80c-f585-40ff-8bfc-12ff4d0e34a9-->
+<App xmlns="http://schemas.microsoft.com/sharepoint/2012/app/manifest"
+     Name="MAS"
+     ProductID="{1925567c-5145-4eb3-8032-af7d1526acde}"
+     Version="1.0.0.0"
+     SharePointMinVersion="15.0.0.0"
+>
+  <Properties>
+    <Title>MAS</Title>
+    <StartPage>~appWebUrl/app/index.html?{StandardTokens}</StartPage>
+  </Properties>
+
+  <AppPrincipal>
+    <Internal />
+  </AppPrincipal>
+  <AppPermissionRequests>
+    <AppPermissionRequest Scope="http://sharepoint/content/sitecollection" Right="FullControl" />
+    <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="FullControl" />
+  </AppPermissionRequests>
+  <RemoteEndpoints>
+    <RemoteEndpoint Url="https://apidev.houstonisd.org/" />
+    <RemoteEndpoint Url="https://connectqaapps.houstonisd.org/" />
+  </RemoteEndpoints>
+</App>

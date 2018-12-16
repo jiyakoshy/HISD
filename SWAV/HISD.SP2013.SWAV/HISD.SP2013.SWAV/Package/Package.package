@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="c7db05ef-27de-4889-b2cc-7ca37b88fb4f" 
+        solutionId="c7db05ef-27de-4889-b2cc-7ca37b88fb4f" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="HISD.SP2013.SWAV"
+        sharePointProductVersion="15.0">
+  <features>
+        <featureReference itemId="fb2925f5-dc47-4e65-9529-81c1d156f4f1" />
+  </features>
+</package>

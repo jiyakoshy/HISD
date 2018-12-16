@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/" Description="SharePoint Add-in Feature" Id="cbed199a-78ba-421c-a1e8-eee548d3f405" Scope="Web" Title="HISD.SP2013.MAS.QA Feature1" Version="1.0.0.0">
+  <ElementManifests>
+    <ElementManifest Location="Scripts\Elements.xml" />
+    <ElementFile Location="Scripts\bootstrap\css\bootstrap-theme.min.css" />
+    <ElementFile Location="Scripts\bootstrap\css\bootstrap-theme.min.css.map" />
+    <ElementFile Location="Scripts\bootstrap\css\bootstrap.min.css" />
+    <ElementFile Location="Scripts\bootstrap\css\bootstrap.min.css.map" />
+    <ElementFile Location="Scripts\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <ElementFile Location="Scripts\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <ElementFile Location="Scripts\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <ElementFile Location="Scripts\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <ElementFile Location="Scripts\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <ElementFile Location="Scripts\bootstrap\js\bootstrap.min.js" />
+    <ElementFile Location="Scripts\bootstrap\js\npm.js" />
+    <ElementFile Location="Scripts\jquery\jquery.min.js" />
+    <ElementFile Location="Scripts\jquery\jquery.min.map" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\office-ui-fabric-react.min.js" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\office-ui-fabric-react.min.js.map" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\css\fabric-7.1.2.scoped.css" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\css\fabric-7.1.2.scoped.min.css" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\css\fabric.css" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\css\fabric.min.css" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\css\fabric.rtl.css" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\css\fabric.rtl.min.css" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\_Animation.RTL.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\_Animation.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\_BrandIcon.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\_Color.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\_Font.Definitions.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\_Font.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\_Grid.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\_Icon.Definitions.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\_Icon.RTL.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\_Icon.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\_References.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\_Responsive.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\_Utility.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\_Wrapper.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\Fabric.RTL.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\Fabric.Scoped.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\Fabric.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\mixins\_Animation.Mixins.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\mixins\_BrandIcon.Mixins.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\mixins\_Color.Mixins.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\mixins\_Directionality.Mixins.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\mixins\_Font.Mixins.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\mixins\_General.Mixins.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\mixins\_Grid.Mixins.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\mixins\_Icon.Mixins.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\mixins\_Responsive.Mixins.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\mixins\_ScopedStyles.Mixins.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\variables\_Animation.Variables.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\variables\_BrandIcon.Variables.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\variables\_Color.Variables.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\variables\_Font.Variables.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\variables\_General.Variables.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\variables\_Icon.Variables.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\variables\_Responsive.Variables.scss" />
+    <ElementFile Location="Scripts\office-ui-fabric-react\sass\variables\_ZIndex.Variables.scss" />
+    <ElementFile Location="Scripts\react-bootstrap\react-bootstrap.min.js" />
+    <ElementFile Location="Scripts\react-bootstrap\react-bootstrap.min.js.map" />
+    <ElementFile Location="Scripts\react-bootstrap-table\react-bootstrap-table-all.min.css" />
+    <ElementFile Location="Scripts\react-bootstrap-table\react-bootstrap-table.min.css" />
+    <ElementFile Location="Scripts\react-bootstrap-table\react-bootstrap-table.min.js" />
+    <ElementFile Location="Scripts\es6-promise.min.js" />
+    <ElementFile Location="Scripts\fetch.min.js.map" />
+    <ElementFile Location="Scripts\polyfill.min.js" />
+    <ElementFile Location="Scripts\fetch.min.js" />
+    <ElementFile Location="Scripts\polyfill.min.old.js" />
+    <ElementFile Location="Scripts\react-dom.min.js" />
+    <ElementFile Location="Scripts\react.min.js" />
+    <ElementFile Location="Scripts\startswith.js" />
+    <ElementManifest Location="Images\Elements.xml" />
+    <ElementFile Location="Images\AppIcon.png" />
+    <ElementFile Location="Images\banner-1.jpg" />
+    <ElementFile Location="Images\favicon.ico" />
+    <ElementManifest Location="app\Elements.xml" />
+    <ElementFile Location="app\index.html" />
+    <ElementFile Location="app\Index_backup.html" />
+    <ElementFile Location="app\bundle.js" />
+    <ElementFile Location="app\bundle.js.map" />
+    <ElementFile Location="app\styles.css" />
+    <ElementFile Location="app\styles.css.map" />
+  </ElementManifests>
+  <UpgradeActions>
+    <VersionRange>
+      <ApplyElementManifests>
+        <ElementManifest Location="Scripts\Elements.xml" />
+        <ElementManifest Location="Images\Elements.xml" />
+        <ElementManifest Location="app\Elements.xml" />
+      </ApplyElementManifests>
+    </VersionRange>
+  </UpgradeActions>
+</Feature>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Published:70EDFC97-B41D-43C5-B751-7C00AD999804-->
+<!--Created:cb85b80c-f585-40ff-8bfc-12ff4d0e34a9-->
+<App xmlns="http://schemas.microsoft.com/sharepoint/2012/app/manifest" Name="MAS" ProductID="{1f43753f-a498-4a95-9a80-6582ea5ba783}" Version="1.0.0.0" SharePointMinVersion="15.0.0.0">
+  <Properties>
+    <Title>MAS</Title>
+    <StartPage>~appWebUrl/app/index.html?{StandardTokens}</StartPage>
+  </Properties>
+  <AppPrincipal>
+    <RemoteWebApplication ClientId="9715cb57-07a5-4b97-8980-0c05ba461746" />
+  </AppPrincipal>
+  <AppPermissionRequests>
+    <AppPermissionRequest Scope="http://sharepoint/content/sitecollection" Right="FullControl" />
+    <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="FullControl" />
+  </AppPermissionRequests>
+  <RemoteEndpoints>
+    <RemoteEndpoint Url="https://connectdevapps.houstonisd.org/" />
+    <RemoteEndpoint Url="https://apidev.houstonisd.org/" />
+  </RemoteEndpoints>
+</App>

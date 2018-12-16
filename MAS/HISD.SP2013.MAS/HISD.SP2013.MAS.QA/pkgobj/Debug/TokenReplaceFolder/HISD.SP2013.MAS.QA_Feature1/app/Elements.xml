@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="app">
+    <File Path="app\index.html" Url="app/index.html" ReplaceContent="TRUE" />
+    <File Path="app\Index_backup.html" Url="app/Index_backup.html" ReplaceContent="TRUE" />
+    <File Path="app\bundle.js" Url="app/bundle.js" ReplaceContent="TRUE" />
+    <File Path="app\bundle.js.map" Url="app/bundle.js.map" ReplaceContent="TRUE" />
+    <File Path="app\styles.css" Url="app/styles.css" ReplaceContent="TRUE" />
+    <File Path="app\styles.css.map" Url="app/styles.css.map" ReplaceContent="TRUE" />
+  </Module>
+</Elements>

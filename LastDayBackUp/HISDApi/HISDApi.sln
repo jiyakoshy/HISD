@@ -1,0 +1,88 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HisdAPI.Common", "HisdAPI\HisdAPI.Common.csproj", "{BDF841F0-E1F8-4D7D-915F-446F4B76F941}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HisdAPI.Tests", "HisdAPI.Tests\HisdAPI.Tests.csproj", "{4E66A8CE-8ECD-488F-AFE4-FAB3528D39EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HisdAPI.Security", "HisdAPI.Security\HisdAPI.Security.csproj", "{40C62C80-8A81-47EF-BE35-75C8D9473FB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HisdAPI.Entities", "HisdAPi.Entitites\HisdAPI.Entities.csproj", "{6408D311-8C64-4207-9250-BFF6BF85B197}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HisdAPI.DAL", "HisdAPI.DAL\HisdAPI.DAL.csproj", "{BC3D93A5-2E28-4C22-8D8E-AA2C164DB0FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HisdAPI.Public", "HisdAPI.Public\HisdAPI.Public.csproj", "{4ABC116D-1CA6-4DAC-829C-82522D74FB87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HISD.Error", "HISD.Error\HISD.Error.csproj", "{C9E51294-A2F4-4E2E-BF39-1F3568AB2805}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDF841F0-E1F8-4D7D-915F-446F4B76F941}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDF841F0-E1F8-4D7D-915F-446F4B76F941}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDF841F0-E1F8-4D7D-915F-446F4B76F941}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDF841F0-E1F8-4D7D-915F-446F4B76F941}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E66A8CE-8ECD-488F-AFE4-FAB3528D39EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E66A8CE-8ECD-488F-AFE4-FAB3528D39EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E66A8CE-8ECD-488F-AFE4-FAB3528D39EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E66A8CE-8ECD-488F-AFE4-FAB3528D39EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40C62C80-8A81-47EF-BE35-75C8D9473FB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40C62C80-8A81-47EF-BE35-75C8D9473FB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40C62C80-8A81-47EF-BE35-75C8D9473FB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40C62C80-8A81-47EF-BE35-75C8D9473FB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6408D311-8C64-4207-9250-BFF6BF85B197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6408D311-8C64-4207-9250-BFF6BF85B197}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6408D311-8C64-4207-9250-BFF6BF85B197}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6408D311-8C64-4207-9250-BFF6BF85B197}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC3D93A5-2E28-4C22-8D8E-AA2C164DB0FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC3D93A5-2E28-4C22-8D8E-AA2C164DB0FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC3D93A5-2E28-4C22-8D8E-AA2C164DB0FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC3D93A5-2E28-4C22-8D8E-AA2C164DB0FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ABC116D-1CA6-4DAC-829C-82522D74FB87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ABC116D-1CA6-4DAC-829C-82522D74FB87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ABC116D-1CA6-4DAC-829C-82522D74FB87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ABC116D-1CA6-4DAC-829C-82522D74FB87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9E51294-A2F4-4E2E-BF39-1F3568AB2805}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9E51294-A2F4-4E2E-BF39-1F3568AB2805}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9E51294-A2F4-4E2E-BF39-1F3568AB2805}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9E51294-A2F4-4E2E-BF39-1F3568AB2805}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B0647A18-2EBF-4CBA-8E0F-DEB784724140}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfsprodapp01:8080/tfs/sharepointcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = HisdAPI.Tests\\HisdAPI.Tests.csproj
+		SccProjectName1 = HisdAPI.Tests
+		SccLocalPath1 = HisdAPI.Tests
+		SccProjectUniqueName2 = HisdAPI.Security\\HisdAPI.Security.csproj
+		SccProjectName2 = HisdAPI.Security
+		SccLocalPath2 = HisdAPI.Security
+		SccProjectUniqueName3 = HisdAPi.Entitites\\HisdAPI.Entities.csproj
+		SccProjectName3 = HisdAPi.Entitites
+		SccLocalPath3 = HisdAPi.Entitites
+		SccProjectUniqueName4 = HisdAPI.DAL\\HisdAPI.DAL.csproj
+		SccProjectName4 = HisdAPI.DAL
+		SccLocalPath4 = HisdAPI.DAL
+		SccProjectUniqueName5 = HisdAPI.Public\\HisdAPI.Public.csproj
+		SccProjectName5 = HisdAPI.Public
+		SccLocalPath5 = HisdAPI.Public
+		SccProjectUniqueName6 = HisdAPI\\HisdAPI.Common.csproj
+		SccProjectName6 = HisdAPI
+		SccLocalPath6 = HisdAPI
+		SccProjectUniqueName7 = HISD.Error\\HISD.Error.csproj
+		SccProjectName7 = HISD.Error
+		SccLocalPath7 = HISD.Error
+	EndGlobalSection
+EndGlobal

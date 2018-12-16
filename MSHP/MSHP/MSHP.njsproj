@@ -1,0 +1,295 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>MSHP</Name>
+    <RootNamespace>MSHP</RootNamespace>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>30ae90a5-d5c3-43db-9fa9-f52eb6dc346b</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>
+    </StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <NodejsPort>1337</NodejsPort>
+    <StartWebBrowser>true</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include=".babelrc" />
+    <Content Include=".eslintrc" />
+    <Content Include="package.json" />
+    <Content Include="src\images\ActivityLog.png" />
+    <Content Include="src\images\ajax-loader.gif" />
+    <Content Include="src\images\banner-1.jpg" />
+    <Content Include="src\images\favicon.ico" />
+    <Content Include="src\images\hisdlogo-small.png" />
+    <Content Include="src\images\hisdlogo.png" />
+    <Content Include="src\images\multiple-arrow.png" />
+    <Content Include="src\images\sort_asc.png" />
+    <Content Include="src\images\sort_asc_disabled.png" />
+    <Content Include="src\images\sort_both.png" />
+    <Content Include="src\images\sort_desc.png" />
+    <Content Include="src\images\sort_desc_disabled.png" />
+    <Content Include="src\index.html" />
+    <Content Include="src\styles\styles.css" />
+    {/*<Content Include="src\components\enrollment\enrollmentstyles.css" />*/}
+
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\actions\actionTypes.js" />
+    <Compile Include="src\actions\activityLogsActions.js" />
+    <Compile Include="src\actions\activityMenteesActions.js" />
+    <Compile Include="src\actions\adminActions.js" />
+    <Compile Include="src\actions\ajaxStatusActions.js" />
+    <Compile Include="src\actions\campusActions.js" />
+    
+
+    <Compile Include="src\actions\menteesActions.js" />
+    <Compile Include="src\actions\mentorsActions.js" />
+    <Compile Include="src\actions\relationshipsActions.js" />
+    <Compile Include="src\actions\reportsActions.js" />
+    <Compile Include="src\actions\sharedActions.js" />
+    <Compile Include="src\actions\spUserPropsActions.js" />
+    <Compile Include="src\actions\staffActions.js" />
+
+    <Compile Include="src\actions\enrollmentActions.js" />
+    <Compile Include="src\actions\gradeLevelsActions.js" />
+    <Compile Include="src\actions\calendarReportDatesActions.js" />
+
+    <Compile Include="src\api\activityLogsApi.js" />
+    <Compile Include="src\api\adminApi.js" />
+    <Compile Include="src\api\campusApi.js" />
+    <Compile Include="src\api\config.js" />
+    <Compile Include="src\api\delay.js" />
+    <Compile Include="src\api\mentorsMenteesApi.js" />
+    <Compile Include="src\api\mockData.js" />
+    <Compile Include="src\api\relationshipsApi.js" />
+    <Compile Include="src\api\reportsApi.js" />
+    <Compile Include="src\api\sharedApi.js" />
+    <Compile Include="src\api\sharePointApi.js" />
+    <Compile Include="src\api\staffApi.js" />
+
+    <Compile Include="src\api\mshpApi.js" />
+    
+
+
+    <Compile Include="src\components\activitylogs\ActivityLogsMenteePage.js" />
+    <Compile Include="src\components\activitylogs\ActivityLogsPage.js" />
+    <Compile Include="src\components\activitylogs\EditActivityLogPage.js" />
+    <Compile Include="src\components\activitylogs\MenteeVerificationPage.js" />
+    <Compile Include="src\components\activitylogs\NewActivityLogPage.js" />
+    <Compile Include="src\components\admin\ActivityCodesPage.js" />
+    <Compile Include="src\components\admin\AdminPage.js" />
+    <Compile Include="src\components\admin\CampusContactsPage.js" />
+    <Compile Include="src\components\admin\CBMStandardsPage.js" />
+    <Compile Include="src\components\admin\EditActivityCodePage.js" />
+    <Compile Include="src\components\admin\EditCampusContactPage.js" />
+    <Compile Include="src\components\admin\EditCBMStandardPage.js" />
+    <Compile Include="src\components\admin\EditHomeMessagePage.js" />
+    <Compile Include="src\components\admin\EditMenteeEndDatePage.js" />
+    <Compile Include="src\components\admin\EditSiteContentPage.js" />
+    <Compile Include="src\components\admin\EditTimeConfigPage.js" />
+    <Compile Include="src\components\admin\EditVerificationCodePage.js" />
+    <Compile Include="src\components\admin\HomeMessagesPage.js" />
+    <Compile Include="src\components\admin\MenteesEndDatesPage.js" />
+    <Compile Include="src\components\admin\MentorAgreementPage.js" />
+    <Compile Include="src\components\admin\NewActivityCodePage.js" />
+    <Compile Include="src\components\admin\NewCampusContactPage.js" />
+    <Compile Include="src\components\admin\NewHomeMessagePage.js" />
+    <Compile Include="src\components\admin\NewSiteContentPage.js" />
+    <Compile Include="src\components\admin\NewTimeConfigPage.js" />
+    <Compile Include="src\components\admin\NewVerificationCodePage.js" />
+    <Compile Include="src\components\admin\SiteContentPage.js" />
+    <Compile Include="src\components\admin\TimeConfigPage.js" />
+    <Compile Include="src\components\admin\VerificationCodesPage.js" />
+    <Compile Include="src\components\App.js" />
+    <Compile Include="src\components\common\Dummy.js" />
+    <Compile Include="src\components\common\ErrorPage.js" />
+    <Compile Include="src\components\common\formatters\activeFormatter.js" />
+    <Compile Include="src\components\common\formatters\linkFormatter.js" />
+    <Compile Include="src\components\common\Header.js" />
+    <Compile Include="src\components\common\LeaderInfo.js" />
+    <Compile Include="src\components\common\MessagePage.js" />
+    <Compile Include="src\components\common\PageHeader.js" />
+    <Compile Include="src\components\common\QuickLaunch.js" />
+    <Compile Include="src\components\common\WorkingOnIt.js" />
+
+    <Compile Include="src\components\enrollment\EnrollmentInputPage.js" />
+    <Compile Include="src\components\enrollment\CampusProfilePage.js" />
+    <Compile Include="src\components\enrollment\InputGradeLevelControls.js" />
+    <Compile Include="src\components\enrollment\EnrollmentHistoryPage.js" />
+    <Compile Include="src\components\enrollment\EditEnrollmentInputPage.js" />
+    
+    <Compile Include="src\components\login\LoginPage.js" />
+
+    <Compile Include="src\components\home\AdminHomePage.js" />
+    <Compile Include="src\components\home\HomePage.js" />
+    <Compile Include="src\components\home\LandingPage.js" />
+    <Compile Include="src\components\home\PrincipalHomePage.js" />
+    <Compile Include="src\components\mentees\MenteesPage.js" />
+    <Compile Include="src\components\mentees\MenteesTable.js" />
+    <Compile Include="src\components\mentors\MentorsPage.js" />
+    <Compile Include="src\components\relationships\NewRelationshipPage.js" />
+    <Compile Include="src\components\relationships\RelationshipsPage.js" />
+    <Compile Include="src\components\relationships\ViewRelationshipPage.js" />
+    <Compile Include="src\components\reports\ActivityTotalReportPage.js" />
+    <Compile Include="src\components\reports\DemographicReportPage.js" />
+    <Compile Include="src\components\reports\MentorActivityLogReportPage.js" />
+    <Compile Include="src\components\reports\MentorCompletionReportPage.js" />
+    <Compile Include="src\components\reports\ReportsPage.js" />
+    <Compile Include="src\components\reports\VerificationReportPage.js" />
+    <Compile Include="src\index.js" />
+
+
+
+
+    <Compile Include="src\reducers\activityCodeReducer.js" />
+    <Compile Include="src\reducers\activityCodesReducer.js" />
+    <Compile Include="src\reducers\activityLogMenteeReducer.js" />
+    <Compile Include="src\reducers\activityLogReducer.js" />
+    <Compile Include="src\reducers\activityLogsReducer.js" />
+    <Compile Include="src\reducers\activityMenteesReducer.js" />
+    <Compile Include="src\reducers\activityStandardsReducer.js" />
+    <Compile Include="src\reducers\ajaxStatusReducer.js" />
+    <Compile Include="src\reducers\appReducer.js" />
+    <Compile Include="src\reducers\campusContactReducer.js" />
+    <Compile Include="src\reducers\campusContactsReducer.js" />
+    <Compile Include="src\reducers\campusesReducer.js" />
+    <Compile Include="src\reducers\cbmStandardReducer.js" />
+    <Compile Include="src\reducers\cbmStandardsReducer.js" />
+
+    <Compile Include="src\reducers\enrollmentsReducer.js" />
+    <Compile Include="src\reducers\enrollmentReducer.js />
+    <Compile Include="src\reducers\gradeLevelsReducer.js" />
+    <Compile Include="src\reducers\calendarReportDatesReducer.js />
+    <Compile Include="src\reducers\campusProfileReducer.js" />
+    <Compile Include="src\reducers\regionTotalsByGrade.js" />
+    
+    
+    <Compile Include="src\reducers\errorReducer.js" />
+    <Compile Include="src\reducers\homeMessageReducer.js" />
+    <Compile Include="src\reducers\homeMessagesReducer.js" />
+    <Compile Include="src\reducers\index.js" />
+    <Compile Include="src\reducers\initialState.js" />
+    <Compile Include="src\reducers\menteeEndDateReducer.js" />
+    <Compile Include="src\reducers\menteesEndDatesReducer.js" />
+    <Compile Include="src\reducers\menteesReducer.js" />
+    <Compile Include="src\reducers\mentoringToolsReducer.js" />
+    <Compile Include="src\reducers\mentorsReducer.js" />
+    <Compile Include="src\reducers\menuOptionsReducer.js" />
+    <Compile Include="src\reducers\relationshipReducer.js" />
+    <Compile Include="src\reducers\relationshipsReducer.js" />
+    <Compile Include="src\reducers\reportDataReducer.js" />
+    <Compile Include="src\reducers\siteContentReducer.js" />
+    <Compile Include="src\reducers\siteContentsReducer.js" />
+    <Compile Include="src\reducers\spUserPropsReducer.js" />
+    <Compile Include="src\reducers\staffReducer.js" />
+    <Compile Include="src\reducers\staffsReducer.js" />
+    <Compile Include="src\reducers\timeConfigReducer.js" />
+    <Compile Include="src\reducers\timeConfigsReducer.js" />
+    <Compile Include="src\reducers\timeConfigurationsReducer.js" />
+    <Compile Include="src\reducers\userReducer.js" />
+    <Compile Include="src\reducers\verificationCodeDetailsReducer.js" />
+    <Compile Include="src\reducers\verificationCodeReducer.js" />
+    <Compile Include="src\selectors\selectors.js" />
+    <Compile Include="src\store\configureStore.dev.js" />
+    <Compile Include="src\store\configureStore.js" />
+    <Compile Include="src\store\configureStore.prod.js" />
+    <Compile Include="src\utilities\utilities.js" />
+    <Compile Include="tools\build.js" />
+    <Compile Include="tools\buildHtml.js" />
+    <Compile Include="tools\distServer.js" />
+    <Compile Include="tools\srcServer.js" />
+    <Compile Include="tools\startMessage.js" />
+    <Compile Include="tools\testSetup.js" />
+    <Compile Include="webpack.config.dev.js" />
+    <Compile Include="webpack.config.prod.js" />
+	
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\" />
+    <Folder Include="src\actions\" />
+    <Folder Include="src\api\" />
+    <Folder Include="src\components\" />
+    <Folder Include="src\components\activitylogs\" />
+    <Folder Include="src\components\admin\" />
+    <Folder Include="src\components\common\" />
+    <Folder Include="src\components\common\formatters\" />
+
+    <Folder Include="src\components\enrollment\" />
+    <Folder Include="src\components\login\" />
+    
+    <Folder Include="src\components\home\" />
+    <Folder Include="src\components\mentees\" />
+    <Folder Include="src\components\mentors\" />
+    <Folder Include="src\components\relationships\" />
+    <Folder Include="src\components\reports\" />
+    <Folder Include="src\images\" />
+    <Folder Include="src\reducers\" />
+    <Folder Include="src\selectors\" />
+    <Folder Include="src\store\" />
+    <Folder Include="src\styles\" />
+    <Folder Include="src\utilities\" />
+    <Folder Include="tools\" />
+	
+  </ItemGroup>
+  <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

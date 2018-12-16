@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="0598a5b1-e04e-4ed9-9cc6-e9048a5977f5" 
+        solutionId="0598a5b1-e04e-4ed9-9cc6-e9048a5977f5" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="HISD.SP2013.DAC"
+        sharePointProductVersion="15.0">
+  <features>
+        <featureReference itemId="3c4558a5-d367-4e7c-8de9-3b8a8bd56f5e" />
+  </features>
+</package>

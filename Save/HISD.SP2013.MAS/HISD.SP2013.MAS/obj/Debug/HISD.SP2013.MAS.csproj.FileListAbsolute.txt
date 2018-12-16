@@ -1,0 +1,10 @@
+C:\Users\p00126549\Source\Workspaces\Workspace\MAS\HISD.SP2013.MAS\HISD.SP2013.MAS\bin\Debug\HISD.SP2013.MAS.pdb
+C:\Users\p00126549\Source\Workspaces\Workspace\MAS\HISD.SP2013.MAS\HISD.SP2013.MAS\obj\Debug\HISD.SP2013.MAS.csprojResolveAssemblyReference.cache
+C:\Users\p00126549\Source\Workspaces\Workspace\MAS\HISD.SP2013.MAS\HISD.SP2013.MAS\obj\Debug\HISD.SP2013.MAS.csproj.CoreCompileInputs.cache
+C:\Users\p00126549\Source\Workspaces\Workspace\MAS\HISD.SP2013.MAS\HISD.SP2013.MAS\obj\Debug\HISD.SP2013.MAS.dll
+C:\Users\p00126549\Source\Workspaces\Workspace\MAS\HISD.SP2013.MAS\HISD.SP2013.MAS\obj\Debug\HISD.SP2013.MAS.pdb
+C:\Users\p00126549\source\Save\HISD.SP2013.MAS\HISD.SP2013.MAS\bin\Debug\HISD.SP2013.MAS.pdb
+C:\Users\p00126549\source\Save\HISD.SP2013.MAS\HISD.SP2013.MAS\obj\Debug\HISD.SP2013.MAS.csprojResolveAssemblyReference.cache
+C:\Users\p00126549\source\Save\HISD.SP2013.MAS\HISD.SP2013.MAS\obj\Debug\HISD.SP2013.MAS.csproj.CoreCompileInputs.cache
+C:\Users\p00126549\source\Save\HISD.SP2013.MAS\HISD.SP2013.MAS\obj\Debug\HISD.SP2013.MAS.dll
+C:\Users\p00126549\source\Save\HISD.SP2013.MAS\HISD.SP2013.MAS\obj\Debug\HISD.SP2013.MAS.pdb
